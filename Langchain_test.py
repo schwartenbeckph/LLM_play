@@ -1,5 +1,14 @@
 # frontend
 import streamlit as st
+import subprocess  # Import the subprocess module
+
+# Install the transformers library when the Streamlit app starts
+# This code will run only once during app initialization
+try:
+    subprocess.run(["pip", "install", "transformers"])
+except Exception as e:
+    st.error(f"Error installing transformers: {e}")
+    
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 # title
